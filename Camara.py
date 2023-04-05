@@ -7,9 +7,3 @@ class Camara:
         print(f"La cámara {self.nombre} está transmitiendo en vivo.")
     def get_id(self):
         return self.__id
-
-
-
-
-
-    

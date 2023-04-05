@@ -1,4 +1,4 @@
-import Camara as *
+from Camara import Camara
 class Dispositivo(Camara):
     def __init__(self, id, nombre, resolucion, marca, modelo):
         super().__init__(id, nombre, resolucion)

@@ -38,7 +38,7 @@ class Sesion:
     def cambiarCamara(self):
         if self.__fin == "":
             for i in self.__lista_camaras:
-                if self.__camara.getId() == self.__lista_camaras[i].getId(): ##Si hay un match
+                if self.__camara.get_id() == self.__lista_camaras[i].get_id(): ##Si hay un match
                     if i+1 > len(self.__lista_camaras):
                         self.__camara = self.__lista_camaras[0]
                     else:
