@@ -35,12 +35,26 @@ class Sesion:
             return True
         else:
             return False
-    def cambiarCamara(self):
+        
+    def get_lista_camaras(self):
+        return self.__lista_camaras
+    #entrega el indice en que se encuentra una camara en la lista de camaras
+    def camaraenLista(self):
         aux = 0
-        if self.__fin == "":
-            for i in range(len(self.__lista_camaras)-1):
-                if self.__camara.get_id() == self.__lista_camaras[i].get_id():
-                    
+        while aux >= len(self.__lista_camaras)-1:
+            if self.__camara.get_id() == self.__lista_camaras[aux].get_id():
+                return aux
+            else:
+                aux += 1
+
+
+    def cambiarCamara(self):
+        aux = self.camaraenLista()
+        if aux == len(self.__lista_camaras)-1:
+            self.__camara = self.__lista_camaras[0]
+        else:
+            print(aux)
+            self.__camara = self.__lista_camaras[aux+1]
                     # if i == len(self.__lista_camaras)-1:
                     #     self.__camara = self.__lista_camaras[0]
                     #     break

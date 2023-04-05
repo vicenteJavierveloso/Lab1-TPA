@@ -7,8 +7,8 @@ if __name__ == "__main__":
     c2 = Dispositivo(2, "Webcam", "1080", "Epson", "Cualquiera")
     camaras = [c1,c2]
     clase = Sesion(1,"","","","",c1,camaras)
-    print(clase.get_camara())
+    print(clase.get_lista_camaras()[0])
+    print(clase.camaraenLista())
     clase.cambiarCamara()
-    print(clase.get_camara())
-    clase.cambiarCamara()
-    print(clase.get_camara()) #tendria que volver a 1
+    print(clase.camaraenLista())
+    
