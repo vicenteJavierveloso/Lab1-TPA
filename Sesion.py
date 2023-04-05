@@ -36,14 +36,28 @@ class Sesion:
         else:
             return False
     def cambiarCamara(self):
+        aux = 0
         if self.__fin == "":
-            for i in self.__lista_camaras:
-                if self.__camara.get_id() == self.__lista_camaras[i].get_id(): ##Si hay un match
-                    if i+1 > len(self.__lista_camaras):
-                        self.__camara = self.__lista_camaras[0]
-                    else:
-                        self.__camara = self.__lista_camaras[i+1]
-                else:
-                    continue
-        else:
-            return "La sesion ha finalizado"
+            for i in range(len(self.__lista_camaras)-1):
+                if self.__camara.get_id() == self.__lista_camaras[i].get_id():
+                    
+                    # if i == len(self.__lista_camaras)-1:
+                    #     self.__camara = self.__lista_camaras[0]
+                    #     break
+                    # else:
+                    #     self.__camara = self.__lista_camaras[i+1]
+                    #     break
+        #     for i in range(0, len(self.__lista_camaras)-1):
+        #         if self.__camara.get_id() == self.__lista_camaras[i].get_id(): ##Si hay un match
+        #             print(i)
+        #             print(len(self.__lista_camaras))
+        #             if i == len(self.__lista_camaras)-1:
+        #                 self.__camara = self.__lista_camaras[0]
+        #             else:
+        #                 self.__camara = self.__lista_camaras[i+1]
+        #         else:
+        #             continue
+        # else:
+        #     return "La sesion ha finalizado"
+    def get_camara(self):
+        return self.__camara.get_id()
