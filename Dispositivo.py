@@ -18,5 +18,8 @@ class Dispositivo(Camara):
     def get_id(self):
         return self.__id
     
+    def get_info(self):
+        return (self.__nombre, self.__resolucion, self.__marca, self.__modelo)
+    
     def transmitir(self):
         print(f"La cámara {self.__nombre} está transmitiendo en vivo.")
