@@ -1,9 +1,10 @@
-class Camara:
-    def __init__(self,id,nombre,resolucion):
-        self.__id = id
-        self.__nombre = nombre
-        self.__resolucion = resolucion
-    def transmitir(self):
-        print(f"La cámara {self.nombre} está transmitiendo en vivo.")
+from abc import ABC, abstractmethod
+
+class Camara(ABC):
+    @abstractmethod
     def get_id(self):
-        return self.__id
+        pass
+    
+    @abstractmethod
+    def transmitir(self):
+        pass

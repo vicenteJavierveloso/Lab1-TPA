@@ -1,4 +1,4 @@
-from Camara import Camara
+from Dispositivo import Dispositivo
 from datetime import datetime
 
 #Campos:
@@ -26,6 +26,7 @@ class Sesion:
     def iniciarTransmision(self):
         if self.__inicio == "":
             self.__inicio = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+            self.__camara.transmitir()
             return True
         else:
             return False
@@ -35,43 +36,18 @@ class Sesion:
             return True
         else:
             return False
-        
-    def get_lista_camaras(self):
-        return self.__lista_camaras
-    #entrega el indice en que se encuentra una camara en la lista de camaras
-    def camaraenLista(self):
-        aux = 0
-        while aux >= len(self.__lista_camaras)-1:
-            if self.__camara.get_id() == self.__lista_camaras[aux].get_id():
-                return aux
-            else:
-                aux += 1
-
 
     def cambiarCamara(self):
-        aux = self.camaraenLista()
-        if aux == len(self.__lista_camaras)-1:
-            self.__camara = self.__lista_camaras[0]
+        if self.__inicio != "":
+            indice_cam_actual = self.__lista_camaras.index(self.__camara)
+            if indice_cam_actual == len(self.__lista_camaras)-1:
+                self.__camara = self.__lista_camaras[0]
+                self.__camara.transmitir()
+            else:
+                self.__camara = self.__lista_camaras[indice_cam_actual+1]
+                self.__camara.transmitir()
         else:
-            print(aux)
-            self.__camara = self.__lista_camaras[aux+1]
-                    # if i == len(self.__lista_camaras)-1:
-                    #     self.__camara = self.__lista_camaras[0]
-                    #     break
-                    # else:
-                    #     self.__camara = self.__lista_camaras[i+1]
-                    #     break
-        #     for i in range(0, len(self.__lista_camaras)-1):
-        #         if self.__camara.get_id() == self.__lista_camaras[i].get_id(): ##Si hay un match
-        #             print(i)
-        #             print(len(self.__lista_camaras))
-        #             if i == len(self.__lista_camaras)-1:
-        #                 self.__camara = self.__lista_camaras[0]
-        #             else:
-        #                 self.__camara = self.__lista_camaras[i+1]
-        #         else:
-        #             continue
-        # else:
-        #     return "La sesion ha finalizado"
+            return False
+
     def get_camara(self):
         return self.__camara.get_id()
