@@ -9,11 +9,19 @@ from datetime import datetime
 # __fecha_de_clase: str
 # __inicio: str
 # __fin: str
-# __camara: Camara
+# __camara: Dispositivo
 # __lista_camaras: list
 
 class Sesion:
     def __init__(self, id, nombre_asignatura, nombre_profesor, sala, fecha_de_clase, camara, lista_camaras):
+        assert type(id)==int, "id debe ser un entero"
+        assert type(nombre_asignatura)==str, "nombre_asignatura debe ser una palabra"
+        assert type(nombre_profesor)==str, "nombre_profesor debe ser una palabra"
+        assert type(sala)==str, "sala debe ser una palabra"
+        assert type(fecha_de_clase)==str, "fecha_de_clase debe ser una palabra"
+        assert type(camara)==Dispositivo, "camara debe ser un de la"
+        assert type(lista_camaras)==list, "lista_camaras debe ser una list"
+
         self.__id = id
         self.__nombre_asignatura = nombre_asignatura
         self.__nombre_profesor = nombre_profesor
@@ -24,6 +32,7 @@ class Sesion:
         self.__camara = camara
         self.__lista_camaras = lista_camaras
         self.__estado_transmision = 0
+        
     def iniciarTransmision(self):
         if self.__estado_transmision == 0:
             self.__inicio = datetime.now().strftime("%d/%m/%Y %H:%M:%S")

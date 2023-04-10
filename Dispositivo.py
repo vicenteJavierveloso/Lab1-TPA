@@ -9,12 +9,18 @@ from Camara import Camara
 
 class Dispositivo(Camara):
     def __init__(self, id, nombre, resolucion, marca, modelo):
+        assert type(id)==int, "id debe ser un entero"
+        assert type(nombre)==str, "nombre debe ser una palabra"
+        assert type(resolucion)==str, "resolucion debe ser una palabra"
+        assert type(marca)==str, "marca debe ser una palabra"
+        assert type(modelo)==str, "nombre debe ser una palabra"
+
         self.__id = id
         self.__nombre = nombre
         self.__resolucion = resolucion
         self.__marca = marca
         self.__modelo = modelo
-        
+
     def get_id(self):
         return self.__id
     
